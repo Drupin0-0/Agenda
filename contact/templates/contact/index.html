@@ -1,1 +1,25 @@
-{% extends "global/base.html" %}
+<!-- index.html -->
+{% extends 'global/base.html' %}
+
+{% block title %}Página Inicial{% endblock %}
+
+{% block content %}
+<header>
+    {% for contact in contacts  %}
+    {{contact.first_name }}<br>{% endfor %}
+<div class="bloco">
+    <h1 class="cabecalho">Agenda</h1>
+    <div class="botoes">
+        <button type="button" class="login">Login</button>
+        <button type="button" class="register">Register</button>
+    </div>
+    <div class="search">
+        <input type="text" class="text" placeholder="Search1">
+    </div>
+
+</div>
+
+    
+</header>
+
+{% endblock %}

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'contact',
+    'django_browser_reload'
 ]
 
 MIDDLEWARE = [
@@ -117,7 +118,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = (
-    BASE_DIR / 'base_static',
+    BASE_DIR / 'agenda', 'base_static',
 )
 STATIC_ROOT = BASE_DIR / 'static'
 MEDIA_URL = 'media/'
@@ -126,3 +127,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+try:
+    from projeto.local_settings import *
+    print("✔ local_settings importado com sucesso!")
+except ImportError:
+    print("⚠ local_settings NÃO encontrado.")
