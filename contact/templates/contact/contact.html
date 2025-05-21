@@ -1,18 +1,21 @@
 {% extends 'global/base.html' %}
 
+
 {% block content %}
 
 <div class="bloco">
-    <h1 class="cabecalho">Agenda</h1>
+    <h1 class="cabecalho"><a href="{% url "contact:index" %}" class="cabecalho_link">Agenda</a></h1>
+    <form method="get" action="">
+        <input type="text" name="search" search_input class="search">
+    </form>
+
 
     <div class="botoes">
         <button type="button" class="login">Login</button>
         <button type="button" class="register">Register</button>
     </div>
 
-    <div class="search">
-        <input type="text" class="search-input" placeholder="Search1" />
-    </div>
+    
 </div>
 
 <div class="content">
