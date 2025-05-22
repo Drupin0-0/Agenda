@@ -5,7 +5,7 @@
     <h1 class="cabecalho"><a href="{% url "contact:index" %}" class="cabecalho_link">Agenda</a></h1>
 
     <form method="get" action="{% url "contact:search" %}">
-        <input type="text" name="q" class="search" >
+        <input type="text" name="q" class="search" id='search'  value="{{request.GET.q.strip}}">
     </form>
     <div class="botoes">
     <button type="button" class="login">Login</button>
@@ -15,7 +15,7 @@
     <div class="search">
     </div>
 </div>
-
+{% if page_obj %}
 <div class="responsive-table">
     <table class="contacts-table">
     <caption class="table-caption">Contacts</caption>
@@ -31,7 +31,7 @@
     </thead>
 
     <tbody>
-        {% for contact in contacts %}
+        {% for contact in page_obj %}
         <tr class="table-row">
             <td class="table-cel">
             <a class="table-link" href="http://127.0.0.1:8000/{{ contact.id }}">
@@ -49,4 +49,12 @@
     </table>
 </div>
 </div>
+{% else %}
+    <div class="nada">
+        <h1 class="nao_encontrou">
+            <h1 class="nao_encontrou">🚫 Nenhum contato encontrado 🚫</h1>
+        </h1>
+    </div>
+
+{% endif %}
 {% endblock content %}
