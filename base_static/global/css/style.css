@@ -287,3 +287,31 @@ button.btn {
   background-color: #1E88E5	;
   color: white;
 }
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.has-error input,
+.has-error select,
+.has-error textarea {
+  border: 2px solid #e74c3c;
+  background-color: #ffe6e6;
+}
+
+.form-errors {
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #ffdddd;
+    border: 1px solid red;
+    border-radius: 5px;
+}
+
+.error-msg {
+    color: red;
+    font-weight: bold;
+}
+
+li {
+  color: tomato;
+}

@@ -5,10 +5,9 @@
 <html lang="en">
 <head>
     {% django_browser_reload_script %}
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{site_title}} Agenda</title>
+    <title>{{ site_title }} Agenda</title>
     <link rel="stylesheet" href="{% static 'global/css/style.css' %}">
 </head>
 <body>
@@ -18,8 +17,17 @@
             <a href="{% url 'contact:index' %}" class="cabecalho_link">Agenda</a>
         </h1>
 
-        <form method="get" action="{% url 'contact:search' %}">
-            <input type="text" name="q" class="search" id="search" value="{{ request.GET.q.strip }}">
+        <form method="get" action="{% url 'contact:index' %}" class="search-form">
+            <select name="filtro">
+                <option value="all" {% if selected_filter == 'all' or not selected_filter %}selected{% endif %}>Todos</option>
+                <option value="id" {% if selected_filter == 'id' %}selected{% endif %}>ID</option>
+                <option value="nome" {% if selected_filter == 'nome' %}selected{% endif %}>Nome</option>
+                <option value="telefone" {% if selected_filter == 'telefone' %}selected{% endif %}>Telefone</option>
+                <option value="email" {% if selected_filter == 'email' %}selected{% endif %}>E-mail</option>
+            </select>
+
+            <input type="text" name="query" value="{{ search_value|default:'' }}">
+            <button type="submit">Buscar</button>
         </form>
 
         <div class="botoes">
