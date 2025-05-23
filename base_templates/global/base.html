@@ -1,10 +1,9 @@
 {% load static %}
+{% load django_browser_reload %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% load django_browser_reload %}
-    
     {% django_browser_reload_script %}
 
     <meta charset="UTF-8">
@@ -13,12 +12,29 @@
     <link rel="stylesheet" href="{% static 'global/css/style.css' %}">
 </head>
 <body>
-    
+
+    <div class="bloco">
+        <h1 class="cabecalho">
+            <a href="{% url 'contact:index' %}" class="cabecalho_link">Agenda</a>
+        </h1>
+
+        <form method="get" action="{% url 'contact:search' %}">
+            <input type="text" name="q" class="search" id="search" value="{{ request.GET.q.strip }}">
+        </form>
+
+        <div class="botoes">
+            <button type="button" class="login">Login</button>
+            <button type="button" class="register">Register</button>
+        </div>
+
+        <div class="search"></div>
+    </div>
+
     <main>
         {% block content %}
-        <!-- Outras páginas colocam conteúdo aqui -->
         {% endblock %}
     </main>
+
     {% include "global/partials/_pagination.html" %}
 </body>
 </html>

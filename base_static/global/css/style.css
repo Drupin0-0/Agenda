@@ -162,6 +162,33 @@ body {
 
 }
 
+@media (max-width: 420px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .bloco,
+  .content,
+  .form-group,
+  .form-content {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .form-group input,
+  .btn,
+  .login,
+  .register {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .botoes {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+}
 a.cabecalho_link {
   color: white;
   transition: all 0.3s ease;
@@ -218,4 +245,45 @@ a.cabecalho_link:hover {
 .step-links a {
   text-decoration: none;
   color: #30b10f;
+}
+
+.form-content {
+  margin-bottom: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  width: 100%;
+  max-width: 500px;
+
+}
+
+.form-group input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 500px;
+
+}
+
+
+input#id_first_name {
+  width: 600px;
+  max-width: 500px;
+}
+
+
+button.btn {
+  
+  background-color: #1E88E5	;
+  color: white;
 }
