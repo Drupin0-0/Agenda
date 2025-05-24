@@ -3,6 +3,7 @@ from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
 from contact.forms import ContactForm
 from contact.models import Contact
+from django.contrib.auth.forms import AuthenticationForm
 
 def index(request):
     filtro = request.GET.get('filtro', 'all')
@@ -71,3 +72,5 @@ def create(request):
     }
 
     return render(request, 'contact/create.html', context)
+
+

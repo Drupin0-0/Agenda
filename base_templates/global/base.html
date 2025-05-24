@@ -16,7 +16,7 @@
         <h1 class="cabecalho">
             <a href="{% url 'contact:index' %}" class="cabecalho_link">Agenda</a>
         </h1>
-
+        
         <form method="get" action="{% url 'contact:index' %}" class="search-form">
             <select name="filtro">
                 <option value="all" {% if selected_filter == 'all' or not selected_filter %}selected{% endif %}>Todos</option>
@@ -29,14 +29,16 @@
             <input type="text" name="query" value="{{ search_value|default:'' }}">
             <button type="submit">Buscar</button>
         </form>
-
+        
         <div class="botoes">
             <a href="{% url 'contact:create' %}" class="login">Create</a>
-            <button type="button" class="register">Register</button>
- 
+            <a href="{% url 'contact:register' %}" class="register">Register</a>
         </div>
+
         <div class="search"></div>
     </div>
+
+    {% include "global/partials/_messages.html" %}
 
     <main>
         {% block content %}

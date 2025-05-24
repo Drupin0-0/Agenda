@@ -1,24 +1,42 @@
 {% extends 'global/base.html' %}
 
-
 {% block content %}
-
-
-
 <div class="content">
     <div class="single-contact">
-        <h1 class="single-contact-name">
-            {{ contact.first_name }} {{ contact.last_name }}
-        </h1>
 
-        <p><b>ID:</b> {{ contact.id }}</p>
-        <p><b>E-mail:</b> {{ contact.email }}</p>
-        <p><b>Phone:</b> {{ contact.phone }}</p>
-        <p><b>Created Date:</b> {{ contact.created_date }}</p>
-        <p><b>Description:</b> {{ contact.description }}</p>
-        <p><b>Category:</b> {{ contact.category.name }}</p>
-        
+        <div class="contact-info-container">
+            <div class="contact-text">
+                <h1 class="single-contact-name">
+                    {{ contact.first_name }} {{ contact.last_name }}
+                </h1>
+
+                <p><b>ID:</b> {{ contact.id }}</p>
+                <p><b>E-mail:</b> {{ contact.email }}</p>
+                <p><b>Phone:</b> {{ contact.phone }}</p>
+                <p><b>Created Date:</b> {{ contact.created_date }}</p>
+                <p><b>Description:</b> {{ contact.description }}</p>
+                <p><b>Category:</b> {{ contact.category.name }}</p>
+            </div>
+
+            {% if contact.picture %}
+            <div class="contact-image">
+                <img src="{{ contact.picture.url }}" alt="{{ contact.first_name }}">
+            </div>
+            
+            {% endif %}
+        </div>
+
+    </div>
+
+    <div class="contact-links">
+        <div class="button-group">
+            <a class="btn-link" href="{% url 'contact:update' contact.id %}">UPDATE</a>
+
+            <form action="{% url 'contact:delete' contact.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn-link-delete">DELETE</button>
+            </form>
+        </div>
     </div>
 </div>
-
 {% endblock content %}
