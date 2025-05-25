@@ -1,10 +1,43 @@
-{% extends 'global/base.html' %}
+{% extends "global/base.html" %}
 
 {% block content %}
-<div class="content">
+<div class="content2">
+    <h2 class="login-in-in">Update User</h2>
 
-    <h2>Atualizando</h2>
+    <form method="POST" class="form-content">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            {{ form.first_name.label_tag }}
+            {{ form.first_name }}
+        </div>
 
-    {% include "contact/partials/_user-form.html" %}
+        <div class="form-group">
+            {{ form.last_name.label_tag }}
+            {{ form.last_name }}
+        </div>
+
+        <div class="form-group">
+            {{ form.email.label_tag }}
+            {{ form.email }}
+        </div>
+
+        <div class="form-group">
+            {{ form.username.label_tag }}
+            {{ form.username }}
+        </div>
+
+        {% if form.errors %}
+        <div class="form-errors">
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <p class="error-msg">{{ error }}</p>
+                {% endfor %}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <button type="submit" class="btn">Salvar</button>
+    </form>
 </div>
-{% endblock content %}
+{% endblock %}
