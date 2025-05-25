@@ -6,8 +6,8 @@
     <h2 class="login-in-in">Login </h2>
 
     {% if user.is_authenticated %}
-        <p class="login-in">Você fez login como {{user.username}}
-            Clique <a href="{% url "contact:logout" %}"> Aqui </a>
+        <p class="login-in">Você fez login como {{user.username}},
+            Clique <a href="{% url "contact:logout" %}"> 'Aqui' </a>
             para sair.
         </p>
     {% else %}

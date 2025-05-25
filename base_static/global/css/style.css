@@ -335,14 +335,14 @@ li {
   button.btn,
   .login,
   .register {
-    width: 100%;
-    max-width: 100%;
-    font-size: 16px;
+    flex: 1 1 auto;
+    min-width: 90px;
   }
 
   .botoes {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
   }
 
@@ -362,6 +362,7 @@ li {
   .login-in {
     font-size: 16px;
     text-align: center;
+    color: green;
   }
 
   .login-in-in {
@@ -371,5 +372,53 @@ li {
 
   .cabecalho_link {
     font-size: 24px;
+  }
+}
+
+
+p.login-in {
+  color: black;
+}
+
+div-content2 {
+  box-shadow: black;
+}
+
+@media (max-width: 768px) {
+  .contacts-table {
+    border: 0;
+  }
+
+  .contacts-table thead {
+    display: none;
+  }
+
+  .contacts-table tr {
+    display: block;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    background: #fff;
+  }
+
+  .contacts-table td {
+    display: block;
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+  }
+
+  .contacts-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    color: #333;
+    margin-bottom: 2px;
+  }
+
+  .contacts-table td:last-child {
+    border-bottom: 0;
   }
 }

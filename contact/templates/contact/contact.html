@@ -27,7 +27,7 @@
         </div>
 
     </div>
-
+{% if user == contact.owner %}
     <div class="contact-links">
         <div class="button-group">
             <a class="btn-link" href="{% url 'contact:update' contact.id %}">UPDATE</a>
@@ -39,4 +39,5 @@
         </div>
     </div>
 </div>
+{% endif %}
 {% endblock content %}

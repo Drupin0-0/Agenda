@@ -2,7 +2,6 @@
 
 {% block content %}
 
-
 {% if form.errors %}
     <div class="form-errors">
         {% for field in form %}
@@ -33,15 +32,15 @@
     <tbody>
         {% for contact in page_obj %}
         <tr class="table-row">
-            <td class="table-cel">
+            <td class="table-cel" data-label="ID">
                 <a class="table-link" href="{% url 'contact:contact' contact.id %}">
                     {{ contact.id }}
                 </a>
             </td>
-            <td class="table-cel">{{ contact.first_name }}</td>
-            <td class="table-cel">{{ contact.last_name }}</td>
-            <td class="table-cel">{{ contact.phone }}</td>
-            <td class="table-cel">{{ contact.email }}</td>
+            <td class="table-cel" data-label="First Name">{{ contact.first_name }}</td>
+            <td class="table-cel" data-label="Last Name">{{ contact.last_name }}</td>
+            <td class="table-cel" data-label="Phone">{{ contact.phone }}</td>
+            <td class="table-cel" data-label="E-mail">{{ contact.email }}</td>
         </tr>
         {% endfor %}
     </tbody>
